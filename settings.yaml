@@ -1,0 +1,115 @@
+CustomerManagementService:
+    Db:
+        LogsConnString:
+            settings-key: CustomerManagementService-LogsConnString
+            types:
+              - AzureTableStorage
+        DataConnString:
+            settings-key: CustomerManagementService-Db-DataConnString
+            types:
+            - AzureTableStorage
+    RabbitMq:
+        RabbitMqConnectionString:
+            settings-key: UserManagementRabbitMQ
+            types:
+              - RabbitMq
+        NotificationRabbitMqConnectionString:
+            settings-key: NotificationSystemRabbitMQ
+            types:
+              - RabbitMq
+    VerificationEmailExpirePeriod:
+        settings-key: GeneratedVerificationEmailExpirePeriod
+    VerificationEmailTemplateId:
+        settings-key: GeneratedVerificationEmailTemplateId
+    VerificationEmailSubjectTemplateId:
+        settings-key: GeneratedVerificationEmailSubjectTemplateId
+    VerificationEmailVerificationLink:
+        settings-key: GeneratedVerificationEmailVerificationLink
+    VerificationThankYouEmailTemplateId:
+        settings-key: VerificationThankYouEmailTemplateId
+    VerificationThankYouEmailSubjectTemplateId:
+        settings-key: VerificationThankYouEmailSubjectTemplateId
+    PasswordResetEmailTemplateId:
+        settings-key: PasswordResetEmailTemplateId
+    PasswordResetEmailSubjectTemplateId:
+        settings-key: PasswordResetEmailSubjectTemplateId
+    PasswordResetEmailVerificationLinkTemplate:
+        settings-key: PasswordResetEmailVerificationLinkTemplate
+    PasswordSuccessfulResetEmailTemplateId:
+        settings-key: PasswordSuccessfulResetEmailTemplateId
+    PasswordSuccessfulResetEmailSubjectTemplateId:
+        settings-key: PasswordSuccessfulResetEmailSubjectTemplateId
+    PasswordSuccessfulChangeEmailTemplateId:
+        settings-key: PasswordSuccessfulChangeEmailTemplateId
+    PasswordSuccessfulChangeEmailSubjectTemplateId:
+        settings-key: PasswordSuccessfulChangeEmailSubjectTemplateId
+    GetCustomerBlockStatusBatchRequestMaxSize:
+        settings-key: GetCustomerBlockStatusBatchRequestMaxSize
+    CustomerBlockEmailTemplateId:
+        settings-key: CustomerBlockEmailTemplateId
+    CustomerBlockSubjectTemplateId:
+        settings-key: CustomerBlockSubjectTemplateId
+    CustomerUnblockEmailTemplateId:
+        settings-key: CustomerUnblockEmailTemplateId
+    CustomerUnblockSubjectTemplateId:
+        settings-key: CustomerUnblockSubjectTemplateId
+    CustomerSupportPhoneNumber:
+        settings-key: CustomerSupportPhoneNumber
+    PhoneVerificationCodeExpirePeriod:
+        settings-key: PhoneVerificationCodeExpirePeriod
+    PhoneVerificationCodeLength:
+        settings-key: PhoneVerificationCodeLength
+    PhoneVerificationSmsTemplateId:
+        settings-key: PhoneVerificationSmsTemplateId
+    Redis:
+        ConnString:
+            settings-key: CustomerManagementService-Redis-ConnString
+            types:
+            - Redis
+        InstanceName:
+            settings-key: CustomerManagementService-Redis-InstanceName
+    LimitationSettings:
+        EmailVerificationMaxAllowedRequestsNumber:
+            settings-key: CustomerManagementService-EmailVerificationMaxAllowedRequestsNumber
+        EmailVerificationCallsMonitoredPeriod:
+            settings-key: CustomerManagementService-EmailVerificationCallsMonitoredPeriod
+        PhoneVerificationMaxAllowedRequestsNumber:
+            settings-key: CustomerManagementService-PhoneVerificationMaxAllowedRequestsNumber
+        PhoneVerificationCallsMonitoredPeriod:
+            settings-key: CustomerManagementService-PhoneVerificationCallsMonitoredPeriod
+    RegistrationRestrictions:
+        AllowedEmailDomains:
+            settings-key: CustomerManagementService-AllowedEmailDomains
+            types:
+                - JsonArray
+        AllowedEmails:
+            settings-key: CustomerManagementService-AllowedEmails
+            types:
+                - JsonArray
+SessionsService:
+    ServiceUrl :
+        settings-key: SessionsServiceUrl
+CredentialsService:
+    ServiceUrl :
+        settings-key: CredentialsServiceUrl
+CustomerProfileService:
+    ServiceUrl:
+        settings-key: CustomerProfileServiceUrl
+PrivateBlockchainFacadeService:
+    ServiceUrl:
+        settings-key: PrivateBlockchainFacadeServiceUrl
+SlackNotifications:
+    AzureQueue:
+        ConnectionString:
+            settings-key: SlackNotificationsConnString
+            types:
+                - AzureTableStorage
+        QueueName:
+            settings-key: SlackQueueName
+MonitoringServiceClient:
+    MonitoringServiceUrl:
+        settings-key: MonitoringServiceUrl
+Constants:
+    TokenSymbol:
+        settings-key: Constant-TokenSymbol
+
