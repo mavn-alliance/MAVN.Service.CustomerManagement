@@ -22,7 +22,7 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Lykke.Service.CustomerManagement.MsSqlRepositories.Entities.CustomerFlagsEntity", b =>
+            modelBuilder.Entity("MAVN.Service.CustomerManagement.MsSqlRepositories.Entities.CustomerFlagsEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Migrations
                     b.ToTable("customer_flags");
                 });
 
-            modelBuilder.Entity("Lykke.Service.CustomerManagement.MsSqlRepositories.Entities.CustomerRegistrationReferralDataEntity", b =>
+            modelBuilder.Entity("MAVN.Service.CustomerManagement.MsSqlRepositories.Entities.CustomerRegistrationReferralDataEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Migrations
                     b.ToTable("customers_registration_referral_data");
                 });
 
-            modelBuilder.Entity("Lykke.Service.CustomerManagement.MsSqlRepositories.Entities.VerificationCodeEntity", b =>
+            modelBuilder.Entity("MAVN.Service.CustomerManagement.MsSqlRepositories.Entities.VerificationCodeEntity", b =>
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
