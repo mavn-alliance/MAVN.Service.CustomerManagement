@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -14,9 +14,10 @@ using MAVN.Service.CustomerManagement.Domain.Services;
 using Lykke.Service.CustomerProfile.Client;
 using Lykke.Service.CustomerProfile.Client.Models.Enums;
 using Lykke.Service.CustomerProfile.Client.Models.Requests;
+using Lykke.Service.CustomerProfile.Client.Models.Responses;
 using Lykke.Service.Sessions.Client;
 using Lykke.Service.Sessions.Client.Models;
-using LoginProvider = Lykke.Service.CustomerManagement.Domain.Enums.LoginProvider;
+using LoginProvider = MAVN.Service.CustomerManagement.Domain.Enums.LoginProvider;
 
 namespace MAVN.Service.CustomerManagement.DomainServices
 {
@@ -105,7 +106,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
             if (customerProfileResult.ErrorCode == CustomerProfileErrorCodes.CustomerProfileDoesNotExist)
                 return new AuthResultModel { Error = ServicesError.LoginNotFound };
 
-            var customerProfileLoginProvider = (CustomerProfile.Client.Models.Enums.LoginProvider)loginProvider;
+            var customerProfileLoginProvider = (Lykke.Service.CustomerProfile.Client.Models.Enums.LoginProvider)loginProvider;
 
             if (!customerProfileResult.Profile.LoginProviders.Contains(customerProfileLoginProvider))
                 return new AuthResultModel { Error = ServicesError.LoginExistsWithDifferentProvider };

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Common;
 using Lykke.Logs;
@@ -40,7 +40,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com",
                             IsEmailVerified = true
@@ -89,7 +89,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -147,7 +147,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -213,7 +213,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -280,7 +280,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -333,7 +333,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -399,7 +399,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }

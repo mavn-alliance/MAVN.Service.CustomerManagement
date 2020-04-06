@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Lykke.Logs;
 using Lykke.RabbitMqBroker.Publisher;
@@ -76,7 +76,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         IsPhoneVerified = true
                     }
@@ -98,7 +98,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         IsPhoneVerified = true,
                         ShortPhoneNumber = FakePhoneNumber
@@ -121,7 +121,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         IsPhoneVerified = false,
                         ShortPhoneNumber = FakePhoneNumber

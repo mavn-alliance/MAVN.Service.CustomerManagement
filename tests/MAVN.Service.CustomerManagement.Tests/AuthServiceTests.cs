@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -147,7 +147,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customersProfileClient.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(),true,true ))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         Status = CustomerProfileStatus.Active
                     }
@@ -262,7 +262,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(), true, true))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         Status = CustomerProfileStatus.Active
                     }
@@ -310,7 +310,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         CustomerId = customerId,
                         LoginProviders = new List<LoginProvider>() {LoginProvider.Google},
@@ -380,7 +380,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider>()
                         {
@@ -421,7 +421,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         CustomerId = customerId,
                         LoginProviders = new List<LoginProvider>()

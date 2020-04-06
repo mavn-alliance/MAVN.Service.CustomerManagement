@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -158,7 +158,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider> { loginProvider}
                     }
@@ -241,7 +241,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                    Profile = new CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider> { loginProvider }
                     }
@@ -310,7 +310,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                         .ReturnsAsync(new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
+                        Profile = new CustomerProfile
                         {
                             LoginProviders = new List<LoginProvider> { loginProvider }
                         }
