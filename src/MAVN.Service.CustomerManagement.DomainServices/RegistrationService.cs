@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -19,7 +19,7 @@ using Lykke.Service.CustomerProfile.Client.Models.Enums;
 using Lykke.Service.CustomerProfile.Client.Models.Requests;
 using Lykke.Service.PrivateBlockchainFacade.Client;
 using Lykke.Service.PrivateBlockchainFacade.Client.Models;
-using LoginProvider = Lykke.Service.CustomerManagement.Domain.Enums.LoginProvider;
+using LoginProvider = MAVN.Service.CustomerManagement.Domain.Enums.LoginProvider;
 using CPLoginProvider = Lykke.Service.CustomerProfile.Client.Models.Enums.LoginProvider;
 
 namespace MAVN.Service.CustomerManagement.DomainServices

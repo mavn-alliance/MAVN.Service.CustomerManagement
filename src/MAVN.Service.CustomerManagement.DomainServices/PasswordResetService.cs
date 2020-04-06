@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
@@ -77,7 +77,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
             var identifierResponse =
                 await _credentialsClient.Api.GenerateResetIdentifierAsync(customer.Profile.CustomerId);
 
-            if (identifierResponse.ErrorCode != Credentials.Client.Enums.PasswordResetError.None)
+            if (identifierResponse.ErrorCode != Lykke.Service.Credentials.Client.Enums.PasswordResetError.None)
                 return _mapper.Map<PasswordResetError>(identifierResponse);
 
             await SendPasswordResetEmailAsync(customer.Profile.CustomerId, identifierResponse.Identifier,
@@ -111,7 +111,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
                 var result = await _credentialsClient.Api.PasswordResetAsync(new PasswordResetRequest
                     {CustomerEmail = customerEmail, ResetIdentifier = identifier, Password = newPassword});
 
-                if (result.Error == Credentials.Client.Enums.PasswordResetError.None)
+                if (result.Error == Lykke.Service.Credentials.Client.Enums.PasswordResetError.None)
                 {
                     await _postProcessService.ClearSessionsAndSentEmailAsync(customer.Profile?.CustomerId,
                         _passwordSuccessfulResetEmailTemplateId, _passwordSuccessfulResetEmailSubjectTemplateId);

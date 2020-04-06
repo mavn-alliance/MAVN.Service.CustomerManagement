@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MAVN.Service.CustomerManagement</name>
+    </assembly>
+    <members>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.AuthController.AuthenticateAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.AuthenticateRequestModel)">
+            <summary>
+            Authenticates customer in the system.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.AuthenticateResponseModel"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.RegisterAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.RegistrationRequestModel)">
+            <summary>
+            Registers new customer in the system.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.RegistrationResponseModel"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.GenerateResetPasswordLink(MAVN.Service.CustomerManagement.Client.Models.Requests.GenerateResetPasswordRequest)">
+            <summary>
+            Generates Password Reset Identifier and sends email to the Customer
+            </summary>
+            <param name="request">GenerateResetPasswordRequest holding the Customer Email.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Enums.PasswordResetError"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.ChangePasswordAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.ChangePasswordRequestModel)">
+            <inheritdoc />
+            <summary>
+            Changes the password of existing customer.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:Lykke.Service.CustomerManagement.Client.Models.Responses.ChangePasswordResponseModel" /></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.PasswordResetAsync(MAVN.Service.CustomerManagement.Client.Models.PasswordResetRequest)">
+            <summary>
+            Resets the Password if the provided Identifier matches
+            </summary>
+            <param name="request" cref="T:MAVN.Service.CustomerManagement.Client.Models.PasswordResetRequest">Contains information about the Password Reset request</param>
+            /// <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.PasswordResetErrorResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.ValidateResetIdentifierAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.ResetIdentifierValidationRequest)">
+            <summary>
+            Validates the provided password reset identifier
+            </summary>
+            <param name="request" cref="T:MAVN.Service.CustomerManagement.Client.Models.Requests.ResetIdentifierValidationRequest">Contains information about the request</param>
+            /// <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.ValidateResetIdentifierResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.CustomerBlockAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.CustomerBlockRequest)">
+            <summary>
+            Blocks Customer
+            </summary>
+            <param name="request" cref="T:MAVN.Service.CustomerManagement.Client.Models.Requests.CustomerBlockRequest">Contains information about the request</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.CustomerBlockResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.CustomerUnblockAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.CustomerUnblockRequest)">
+            <summary>
+            Unblocks Customer
+            </summary>
+            <param name="request" cref="T:MAVN.Service.CustomerManagement.Client.Models.Requests.CustomerUnblockRequest">Contains information about the request</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.CustomerUnblockResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.GetCustomerBlockStateAsync(System.String)">
+            <summary>
+            Gets block status of the Customer
+            </summary>
+            <param name="customerId">Id of the Customer</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.CustomerBlockStatusResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.CustomersController.GetBatchOfCustomersBlockStatusAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.BatchOfCustomerStatusesRequest)">
+            <summary>
+            Gets the block statuses of collection of customers
+            </summary>
+            <param name="request"></param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.CustomerBlockStatusResponse"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.EmailsController.RequestVerificationAsync(MAVN.Service.CustomerManagement.Client.Models.VerificationCodeRequestModel)">
+            <summary>
+            Generates VerificationEmail in the system.
+            </summary>
+            <param name="request">Request.</param>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.EmailsController.ConfirmEmailAsync(MAVN.Service.CustomerManagement.Client.Models.VerificationCodeConfirmationRequestModel)">
+            <summary>
+            Confirm Email in the system.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.VerificationCodeConfirmationResponseModel"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.EmailsController.UpdateEmailAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.UpdateEmailRequestModel)">
+            <summary>
+            Updates customer's email.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.Responses.UpdateEmailResponseModel"/></returns>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.PhonesController.RequestVerificationAsync(MAVN.Service.CustomerManagement.Client.Models.VerificationCodeRequestModel)">
+            <summary>
+            Generates Phone verification code in the system.
+            </summary>
+            <param name="request">Request.</param>
+        </member>
+        <member name="M:MAVN.Service.CustomerManagement.Controllers.PhonesController.ConfirmPhoneAsync(MAVN.Service.CustomerManagement.Client.Models.Requests.PhoneVerificationCodeConfirmationRequestModel)">
+            <summary>
+            Confirm Phone number in the system.
+            </summary>
+            <param name="request">Request.</param>
+            <returns><see cref="T:MAVN.Service.CustomerManagement.Client.Models.VerificationCodeConfirmationResponseModel"/></returns>
+        </member>
+    </members>
+</doc>

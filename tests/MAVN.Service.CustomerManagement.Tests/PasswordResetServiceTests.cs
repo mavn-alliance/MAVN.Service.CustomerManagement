@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using Lykke.Logs;
 using Lykke.RabbitMqBroker.Publisher;
@@ -62,7 +62,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
+                    Profile = new CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }
@@ -84,7 +84,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
+                    Profile = new CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }
@@ -118,7 +118,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
+                    Profile = new CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }
