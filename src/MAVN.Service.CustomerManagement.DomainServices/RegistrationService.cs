@@ -7,20 +7,20 @@ using Common;
 using Common.Log;
 using Lykke.Common.ApiLibrary.Exceptions;
 using Lykke.Common.Log;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
 using MAVN.Service.CustomerManagement.Domain;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.PrivateBlockchainFacade.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client.Models;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client.Models;
 using LoginProvider = MAVN.Service.CustomerManagement.Domain.Enums.LoginProvider;
-using CPLoginProvider = Lykke.Service.CustomerProfile.Client.Models.Enums.LoginProvider;
+using CPLoginProvider = MAVN.Service.CustomerProfile.Client.Models.Enums.LoginProvider;
+using MAVN.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client.Models.Requests;
 
 namespace MAVN.Service.CustomerManagement.DomainServices
 {

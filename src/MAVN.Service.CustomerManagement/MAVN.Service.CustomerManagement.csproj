@@ -22,8 +22,8 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="Falcon.Service.NotificationSystem.Contract" Version="1.0.8" />
     <PackageReference Include="Lykke.Sdk" Version="5.17.0" />
+    <PackageReference Include="MAVN.Service.NotificationSystem.Contract" Version="1.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\client\MAVN.Service.CustomerManagement.Client\MAVN.Service.CustomerManagement.Client.csproj" />

@@ -6,18 +6,17 @@ using Common;
 using Common.Log;
 using Lykke.Common.ApiLibrary.Exceptions;
 using Lykke.Common.Log;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Domain;
 using MAVN.Service.CustomerManagement.Domain.Services;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.Sessions.Client;
-using Lykke.Service.Sessions.Client.Models;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.Sessions.Client;
+using MAVN.Service.Sessions.Client.Models;
 using LoginProvider = MAVN.Service.CustomerManagement.Domain.Enums.LoginProvider;
+using MAVN.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Models.Requests;
 
 namespace MAVN.Service.CustomerManagement.DomainServices
 {
@@ -106,7 +105,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
             if (customerProfileResult.ErrorCode == CustomerProfileErrorCodes.CustomerProfileDoesNotExist)
                 return new AuthResultModel { Error = ServicesError.LoginNotFound };
 
-            var customerProfileLoginProvider = (Lykke.Service.CustomerProfile.Client.Models.Enums.LoginProvider)loginProvider;
+            var customerProfileLoginProvider = (MAVN.Service.CustomerProfile.Client.Models.Enums.LoginProvider)loginProvider;
 
             if (!customerProfileResult.Profile.LoginProviders.Contains(customerProfileLoginProvider))
                 return new AuthResultModel { Error = ServicesError.LoginExistsWithDifferentProvider };

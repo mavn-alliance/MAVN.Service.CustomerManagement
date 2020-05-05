@@ -7,11 +7,11 @@ using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.NotificationSystem.SubscriberContract;
 using Moq;
 using Xunit;
 
@@ -76,7 +76,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         IsPhoneVerified = true
                     }
@@ -98,7 +98,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         IsPhoneVerified = true,
                         ShortPhoneNumber = FakePhoneNumber
@@ -121,7 +121,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _cpClientMock.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(FakeCustomerId, It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         IsPhoneVerified = false,
                         ShortPhoneNumber = FakePhoneNumber

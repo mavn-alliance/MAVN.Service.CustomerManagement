@@ -1,12 +1,12 @@
-using AutoMapper;
+﻿using AutoMapper;
 using JetBrains.Annotations;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Client.Models;
 using MAVN.Service.CustomerManagement.Client.Models.Requests;
 using MAVN.Service.CustomerManagement.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Domain;
 using MAVN.Service.CustomerManagement.Domain.Models;
-using PasswordResetErrorResponse = Lykke.Service.Credentials.Client.Models.Responses.PasswordResetErrorResponse;
+using PasswordResetErrorResponse = MAVN.Service.Credentials.Client.Models.Responses.PasswordResetErrorResponse;
 
 namespace MAVN.Service.CustomerManagement.AutoMapperProfiles
 {

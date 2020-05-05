@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Lykke.Common;
 using Lykke.RabbitMqBroker.Publisher;
 using MAVN.Service.CustomerManagement.Domain.Services;
-using Lykke.Service.NotificationSystem.SubscriberContract;
-using Lykke.Service.Sessions.Client;
+using MAVN.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.Sessions.Client;
 
 namespace MAVN.Service.CustomerManagement.DomainServices
 {

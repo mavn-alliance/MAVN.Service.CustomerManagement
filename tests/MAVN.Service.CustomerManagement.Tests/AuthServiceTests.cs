@@ -6,18 +6,18 @@ using Lykke.Common.Api.Contract.Responses;
 using Lykke.Common.ApiLibrary.Exceptions;
 using Lykke.Logs;
 using Lykke.Logs.Loggers.LykkeConsole;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Models.Requests;
+using MAVN.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Client;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.Sessions.Client;
-using Lykke.Service.Sessions.Client.Models;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.Sessions.Client;
+using MAVN.Service.Sessions.Client.Models;
 using Moq;
 using Xunit;
 
@@ -147,7 +147,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customersProfileClient.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(),true,true ))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         Status = CustomerProfileStatus.Active
                     }
@@ -262,7 +262,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(), true, true))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         Status = CustomerProfileStatus.Active
                     }
@@ -310,7 +310,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         CustomerId = customerId,
                         LoginProviders = new List<LoginProvider>() {LoginProvider.Google},
@@ -380,7 +380,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider>()
                         {
@@ -421,7 +421,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         CustomerId = customerId,
                         LoginProviders = new List<LoginProvider>()

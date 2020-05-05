@@ -4,14 +4,14 @@
     <Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Falcon.Service.Credentials.Client" Version="7.10.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="Falcon.Service.CustomerProfile.Client" Version="7.7.0" />
-    <PackageReference Include="Falcon.Service.NotificationSystem.SubscriberContract" Version="1.0.2" />
-    <PackageReference Include="Falcon.Service.PrivateBlockchainFacade.Client" Version="2.9.0" />
-    <PackageReference Include="Falcon.Service.PrivateBlockchainFacade.Contract" Version="2.13.0" />
-    <PackageReference Include="Falcon.Service.Sessions.Client" Version="4.0.0" />
     <PackageReference Include="Lykke.RabbitMqBroker" Version="7.13.1" />
+    <PackageReference Include="MAVN.Service.Credentials.Client" Version="1.0.1" />
+    <PackageReference Include="MAVN.Service.CustomerProfile.Client" Version="1.2.0" />
+    <PackageReference Include="MAVN.Service.NotificationSystem.SubscriberContract" Version="1.1.0" />
+    <PackageReference Include="MAVN.Service.PrivateBlockchainFacade.Client" Version="1.0.1" />
+    <PackageReference Include="MAVN.Service.PrivateBlockchainFacade.Contract" Version="1.0.1" />
+    <PackageReference Include="MAVN.Service.Sessions.Client" Version="1.0.1" />
     <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
   </ItemGroup>
   <ItemGroup>
