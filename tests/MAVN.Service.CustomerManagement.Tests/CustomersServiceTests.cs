@@ -8,21 +8,21 @@ using Lykke.Common.ApiLibrary.Exceptions;
 using Lykke.Logs;
 using Lykke.Logs.Loggers.LykkeConsole;
 using Lykke.RabbitMqBroker.Publisher;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Models.Requests;
+using MAVN.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Domain.Enums;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.NotificationSystem.SubscriberContract;
-using Lykke.Service.Sessions.Client;
-using Lykke.Service.Sessions.Client.Models;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.Sessions.Client;
+using MAVN.Service.Sessions.Client.Models;
 using Moq;
 using Xunit;
 using BatchCustomerStatusesErrorCode = MAVN.Service.CustomerManagement.Domain.Enums.BatchCustomerStatusesErrorCode;
@@ -46,11 +46,11 @@ namespace MAVN.Service.CustomerManagement.Tests
         public async Task UserTriesToChangePassword_EverythingValid_Successful()
         {
             var customerProfileClient = new Mock<ICustomerProfileClient>();
-            customerProfileClient.Setup(c => c.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<bool>()))
+            _ = customerProfileClient.Setup(c => c.CustomerProfiles.GetByCustomerIdAsync(It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<bool>()))
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -108,7 +108,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -166,7 +166,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -233,7 +233,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -299,7 +299,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -354,7 +354,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                     new CustomerProfileResponse
                     {
                         ErrorCode = CustomerProfileErrorCodes.None,
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -471,7 +471,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                     new CustomerProfileResponse
                     {
                         ErrorCode = CustomerProfileErrorCodes.None,
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -529,7 +529,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                     new CustomerProfileResponse
                     {
                         ErrorCode = CustomerProfileErrorCodes.None,
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -630,7 +630,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                     new CustomerProfileResponse
                     {
                         ErrorCode = CustomerProfileErrorCodes.None,
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -732,7 +732,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                     new CustomerProfileResponse
                     {
                         ErrorCode = CustomerProfileErrorCodes.None,
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -824,13 +824,13 @@ namespace MAVN.Service.CustomerManagement.Tests
             var fakeId3 = "id3";
             var customerProfileClient = new Mock<ICustomerProfileClient>();
             customerProfileClient.Setup(x => x.CustomerProfiles.GetByIdsAsync(new[] { fakeId1, fakeId2, fakeId3 }, true, It.IsAny<bool>()))
-                .ReturnsAsync(new List<CustomerProfile>
+                .ReturnsAsync(new List<CustomerProfile.Client.Models.Responses.CustomerProfile>
                 {
-                    new CustomerProfile()
+                    new CustomerProfile.Client.Models.Responses.CustomerProfile()
                     {
                         CustomerId = fakeId1
                     },
-                    new CustomerProfile()
+                    new CustomerProfile.Client.Models.Responses.CustomerProfile()
                     {
                         CustomerId = fakeId2
                     }

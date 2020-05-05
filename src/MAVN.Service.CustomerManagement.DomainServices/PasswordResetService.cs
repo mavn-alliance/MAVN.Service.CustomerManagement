@@ -8,15 +8,15 @@ using Lykke.Common;
 using Lykke.Common.ApiLibrary.Exceptions;
 using Lykke.Common.Log;
 using Lykke.RabbitMqBroker.Publisher;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
 using MAVN.Service.CustomerManagement.Domain.Enums;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Models.Requests;
 
 namespace MAVN.Service.CustomerManagement.DomainServices
 {
@@ -77,7 +77,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
             var identifierResponse =
                 await _credentialsClient.Api.GenerateResetIdentifierAsync(customer.Profile.CustomerId);
 
-            if (identifierResponse.ErrorCode != Lykke.Service.Credentials.Client.Enums.PasswordResetError.None)
+            if (identifierResponse.ErrorCode != Credentials.Client.Enums.PasswordResetError.None)
                 return _mapper.Map<PasswordResetError>(identifierResponse);
 
             await SendPasswordResetEmailAsync(customer.Profile.CustomerId, identifierResponse.Identifier,
@@ -111,7 +111,7 @@ namespace MAVN.Service.CustomerManagement.DomainServices
                 var result = await _credentialsClient.Api.PasswordResetAsync(new PasswordResetRequest
                     {CustomerEmail = customerEmail, ResetIdentifier = identifier, Password = newPassword});
 
-                if (result.Error == Lykke.Service.Credentials.Client.Enums.PasswordResetError.None)
+                if (result.Error == Credentials.Client.Enums.PasswordResetError.None)
                 {
                     await _postProcessService.ClearSessionsAndSentEmailAsync(customer.Profile?.CustomerId,
                         _passwordSuccessfulResetEmailTemplateId, _passwordSuccessfulResetEmailSubjectTemplateId);

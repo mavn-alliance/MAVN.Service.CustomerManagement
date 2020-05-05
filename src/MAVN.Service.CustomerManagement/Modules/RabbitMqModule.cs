@@ -1,11 +1,11 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
 using Lykke.Common;
 using Lykke.RabbitMqBroker.Publisher;
 using MAVN.Service.CustomerManagement.Contract.Events;
 using MAVN.Service.CustomerManagement.DomainServices.Rabbit.Subscribers;
 using MAVN.Service.CustomerManagement.Settings;
-using Lykke.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.NotificationSystem.SubscriberContract;
 using Lykke.SettingsReader;
 
 namespace MAVN.Service.CustomerManagement.Modules

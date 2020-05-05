@@ -1,10 +1,10 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using Lykke.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client;
 using MAVN.Service.CustomerManagement.Settings;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client;
-using Lykke.Service.Sessions.Client;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.Sessions.Client;
 using Lykke.SettingsReader;
 
 namespace MAVN.Service.CustomerManagement.Modules

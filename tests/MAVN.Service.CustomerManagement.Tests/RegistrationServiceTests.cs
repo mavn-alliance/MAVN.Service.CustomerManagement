@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Lykke.Logs;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Models.Requests;
+using MAVN.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Enums;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.PrivateBlockchainFacade.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client.Models;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Enums;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client.Models;
 using Moq;
 using Xunit;
 
@@ -158,7 +158,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider> { loginProvider}
                     }
@@ -241,7 +241,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                     {
                         LoginProviders = new List<LoginProvider> { loginProvider }
                     }
@@ -310,7 +310,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 _customerProfileClient.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.IsAny<GetByEmailRequestModel>()))
                         .ReturnsAsync(new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             LoginProviders = new List<LoginProvider> { loginProvider }
                         }

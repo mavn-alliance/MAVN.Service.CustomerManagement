@@ -1,9 +1,9 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Lykke.Sdk.Settings;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.PrivateBlockchainFacade.Client;
-using Lykke.Service.Sessions.Client;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.PrivateBlockchainFacade.Client;
+using MAVN.Service.Sessions.Client;
 
 namespace MAVN.Service.CustomerManagement.Settings
 {

@@ -2,20 +2,20 @@
 using AutoMapper;
 using Lykke.Logs;
 using Lykke.RabbitMqBroker.Publisher;
-using Lykke.Service.Credentials.Client;
-using Lykke.Service.Credentials.Client.Enums;
-using Lykke.Service.Credentials.Client.Models.Requests;
-using Lykke.Service.Credentials.Client.Models.Responses;
+using MAVN.Service.Credentials.Client;
+using MAVN.Service.Credentials.Client.Enums;
+using MAVN.Service.Credentials.Client.Models.Requests;
+using MAVN.Service.Credentials.Client.Models.Responses;
 using MAVN.Service.CustomerManagement.AutoMapperProfiles;
 using MAVN.Service.CustomerManagement.Domain.Enums;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Requests;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Requests;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.NotificationSystem.SubscriberContract;
 using Moq;
 using Xunit;
 
@@ -62,7 +62,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile()
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }
@@ -84,7 +84,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile()
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }
@@ -118,7 +118,7 @@ namespace MAVN.Service.CustomerManagement.Tests
             _customerProfileClientMock.Setup(x => x.CustomerProfiles.GetByEmailAsync(It.Is<GetByEmailRequestModel>(i => i.Email == FakeEmail)))
                 .ReturnsAsync(new CustomerProfileResponse
                 {
-                    Profile = new CustomerProfile()
+                    Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile()
                     {
                         CustomerId = FakeCustomerId
                     }

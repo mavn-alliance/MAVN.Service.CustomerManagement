@@ -11,9 +11,9 @@ using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Services;
 using MAVN.Service.CustomerManagement.DomainServices;
-using Lykke.Service.CustomerProfile.Client;
-using Lykke.Service.CustomerProfile.Client.Models.Responses;
-using Lykke.Service.NotificationSystem.SubscriberContract;
+using MAVN.Service.CustomerProfile.Client;
+using MAVN.Service.CustomerProfile.Client.Models.Responses;
+using MAVN.Service.NotificationSystem.SubscriberContract;
 using Moq;
 using Xunit;
 
@@ -40,7 +40,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com",
                             IsEmailVerified = true
@@ -89,7 +89,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -147,7 +147,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -213,7 +213,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -280,7 +280,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -333,7 +333,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
@@ -399,7 +399,7 @@ namespace MAVN.Service.CustomerManagement.Tests
                 .ReturnsAsync(
                     new CustomerProfileResponse
                     {
-                        Profile = new CustomerProfile
+                        Profile = new CustomerProfile.Client.Models.Responses.CustomerProfile
                         {
                             Email = "mail@mail.com"
                         }
