@@ -1,11 +1,11 @@
-using Autofac;
+﻿using Autofac;
 using JetBrains.Annotations;
-using MAVN.Common.MsSql;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Contexts;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Repositories;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.Settings;
 using Lykke.SettingsReader;
+using MAVN.Persistence.PostgreSQL.Legacy;
 
 namespace MAVN.Service.CustomerManagement.Modules
 {
@@ -21,7 +21,7 @@ namespace MAVN.Service.CustomerManagement.Modules
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterMsSql(
+            builder.RegisterPostgreSQL(
                 _settings.Db.DataConnString,
                 connString => new CmContext(connString, false),
                 dbConn => new CmContext(dbConn));

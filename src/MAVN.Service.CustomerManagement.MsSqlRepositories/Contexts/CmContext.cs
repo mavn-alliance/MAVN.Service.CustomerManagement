@@ -1,11 +1,11 @@
-using System.Data.Common;
-using MAVN.Common.MsSql;
+﻿using System.Data.Common;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Contexts
 {
-    public class CmContext : MsSqlContext
+    public class CmContext : PostgreSQLContext
     {
         private const string Schema = "customer_management";
 
@@ -31,7 +31,7 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Contexts
         {
         }
 
-        protected override void OnLykkeModelCreating(ModelBuilder modelBuilder)
+        protected override void OnMAVNModelCreating(ModelBuilder modelBuilder)
         {
             var verificationCodeEntityBuilder = modelBuilder.Entity<EmailVerificationCodeEntity>();
             verificationCodeEntityBuilder.HasIndex(c => c.VerificationCode).IsUnique();

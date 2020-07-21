@@ -1,23 +1,24 @@
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Common.Log;
 using Lykke.Common.Log;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Contexts;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Repositories
 {
     public class CustomersRegistrationReferralDataRepository : ICustomersRegistrationReferralDataRepository
     {
-        private readonly MsSqlContextFactory<CmContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<CmContext> _contextFactory;
         private readonly ILog _log;
 
         public CustomersRegistrationReferralDataRepository(
-            MsSqlContextFactory<CmContext> contextFactory,
+            PostgreSQLContextFactory<CmContext> contextFactory,
             ILogFactory logFactory)
         {
             _contextFactory = contextFactory;
@@ -38,8 +39,8 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Repositories
                 }
                 catch (DbUpdateException e)
                 {
-                    if (e.InnerException is SqlException sqlException
-                        && sqlException.Number == MsSqlErrorCodes.PrimaryKeyConstraintViolation)
+                    if (e.InnerException is PostgresException sqlException
+                        && sqlException.SqlState == PostgresErrorCodes.UniqueViolation)
                     {
                         _log.Error(e, "Error on customer referral data context saving");
                     }

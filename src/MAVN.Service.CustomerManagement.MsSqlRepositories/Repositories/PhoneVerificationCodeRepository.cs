@@ -1,20 +1,21 @@
-using System;
+﻿using System;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using MAVN.Common.MsSql;
+using MAVN.Persistence.PostgreSQL.Legacy;
 using MAVN.Service.CustomerManagement.Domain.Models;
 using MAVN.Service.CustomerManagement.Domain.Repositories;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Contexts;
 using MAVN.Service.CustomerManagement.MsSqlRepositories.Entities;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Repositories
 {
     public class PhoneVerificationCodeRepository : IPhoneVerificationCodeRepository
     {
-        private readonly MsSqlContextFactory<CmContext> _contextFactory;
+        private readonly PostgreSQLContextFactory<CmContext> _contextFactory;
 
-        public PhoneVerificationCodeRepository(MsSqlContextFactory<CmContext> contextFactory)
+        public PhoneVerificationCodeRepository(PostgreSQLContextFactory<CmContext> contextFactory)
         {
             _contextFactory = contextFactory;
         }
@@ -34,8 +35,8 @@ namespace MAVN.Service.CustomerManagement.MsSqlRepositories.Repositories
                 }
                 catch (DbUpdateException e)
                 {
-                    if (e.InnerException is SqlException sqlException &&
-                        sqlException.Number == MsSqlErrorCodes.PrimaryKeyConstraintViolation)
+                    if (e.InnerException is PostgresException sqlException &&
+                        sqlException.SqlState == PostgresErrorCodes.UniqueViolation)
                     {
                         context.PhoneVerificationCodes.Update(entity);
 
